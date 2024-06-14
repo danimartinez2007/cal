@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Animales</title>
+<style>
+    body {
+        background-color: #a3c1ad; /* Color de fondo verde para la temática de animales */
+        font-family: Arial, sans-serif;
+    }
+    .calculator {
+        width: 250px;
+        background-color: #ffd699; /* Color de fondo naranja para la calculadora */
+        border-radius: 5px;
+        margin: 100px auto;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .calculator input[type="button"] {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin: 5px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background-color: #ffe0cc; /* Color de fondo de los botones */
+    }
+    .calculator input[type="button"]:hover {
+        background-color: #ffcc99; /* Color de fondo de los botones en estado de hover */
+    }
+</style>
+</head>
+<body>
+
+<div class="calculator">
+    <input type="text" id="display">
+    <br>
+    <input type="button" value="🐘" onclick="addToDisplay('🐘')">
+    <input type="button" value="🦁" onclick="addToDisplay('🦁')">
+    <input type="button" value="🐼" onclick="addToDisplay('🐼')">
+    <input type="button" value="/" onclick="addToDisplay('/')">
+    <br>
+    <input type="button" value="🐶" onclick="addToDisplay('🐶')">
+    <input type="button" value="🐱" onclick="addToDisplay('🐱')">
+    <input type="button" value="🐰" onclick="addToDisplay('🐰')">
+    <input type="button" value="*" onclick="addToDisplay('*')">
+    <br>
+    <input type="button" value="🐢" onclick="addToDisplay('🐢')">
+    <input type="button" value="🐍" onclick="addToDisplay('🐍')">
+    <input type="button" value="🐙" onclick="addToDisplay('🐙')">
+    <input type="button" value="-" onclick="addToDisplay('-')">
+    <br>
+    <input type="button" value="." onclick="addToDisplay('.')">
+    <input type="button" value="🦄" onclick="addToDisplay('🦄')">
+    <input type="button" value="C" onclick="clearDisplay()">
+    <input type="button" value="+" onclick="addToDisplay('+')">
+    <br>
+    <input type="button" value="=" onclick="calculate()">
+</div>
+
+<script>
+    function addToDisplay(value) {
+        document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+        document.getElementById('display').value = '';
+    }
+
+    function calculate() {
+        var expression = document.getElementById('display').value;
+        try {
+            var result = eval(expression);
+            document.getElementById('display').value = result;
+        } catch (error) {
+            document.getElementById('display').value = 'Error';
+        }
+    }
+</script>
+
+</body>
+</html>
